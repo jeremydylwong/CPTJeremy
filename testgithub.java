@@ -5,5 +5,6 @@ public class testgithub{
 		Console con = new Console();
 		
 		con.println("Hello World");
+		con.println("Test");
 	}
 }
