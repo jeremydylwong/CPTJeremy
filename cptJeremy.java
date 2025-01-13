@@ -24,5 +24,80 @@ public class cptJeremy{
             }
         }
     }
+    
+    public static void playGame(Console con) {
+		int intDeck[][];
+		intDeck = new int[52][3];
+        
+        initializeDeck(intDeck);
+        shuffleDeck(intDeck);
+
+        int intPlayerMoney = 1000;
+
+        con.println("Enter your name:");
+        String strPlayerName = con.readLine();
+
+        // Game loop
+        while (true) {
+            con.println("You have $" + intPlayerMoney);
+            con.println("Enter your bet:");
+            int intBet = con.readInt();
+
+            if (intBet > intPlayerMoney) {
+                con.println("You don't have enough money to place that bet.");
+                con.println("Enter a valid bet:");
+                intBet = con.readInt();
+            }
+
+            int intPlayerHand[][];
+            intPlayerHand = new int[5][2];
+            int intDealerHand[][];
+            intDealerHand = new int[5][2];
+
+            int intPlayerChoice = 0;
+            while (intPlayerValue <= 21 && intPlayerChoice != 2) {
+                con.println("Do you want to (1) Hit or (2) Stay?");
+                intPlayerChoice = con.readInt();
+                if (intPlayerChoice == 1) {
+                    con.println("Your hand value: " + intPlayerValue);
+                }
+            }
+
+
+            if (intPlayerValue > 21) {
+                con.println("You busted!");
+                intPlayerMoney -= intBet;
+            } else {
+                con.println("Dealer's hand value: " + intDealerValue);
+
+                while (intDealerValue < 17) {
+                    con.println("Dealer's hand value: " + intDealerValue);
+                }
+
+                if (intDealerValue > 21) {
+                    con.println("Dealer busted! You win $" + intBet);
+                    intPlayerMoney += intBet;
+                } else if (intPlayerValue > intDealerValue) {
+                    con.println("You win! You win $" + intBet);
+                    intPlayerMoney += intBet;
+                } else if (intPlayerValue < intDealerValue) {
+                    con.println("Dealer wins! You lose $" + intBet);
+                    intPlayerMoney -= intBet;
+                } else {
+                    con.println("It's a tie! No money lost.");
+                }
+            }
+
+            // Ask if player wants to play again or quit
+            con.println("Do you want to play again? (1) Yes (2) No");
+            int intPlayAgain = con.readInt();
+            if (intPlayAgain == 2 || intPlayerMoney <= 0) {
+                con.println("Game over. You have $" + intPlayerMoney);
+            }
+
+            initializeDeck(intDeck);
+            shuffleDeck(intDeck);
+        }
+    }
 }
 	
