@@ -100,4 +100,28 @@ public class cptJeremy{
         }
     }
 }
+
+	public static void initializeDeck(){
+		int intCount;
+		for(intCount = 0; intCount < 52; intCount++){
+			intDeck[intCount][0] = intCount;
+		}
+		
+		for(intCount = 0; intCount < 13; intCount++){
+			intDeck[intCount][1] = 1;
+		}
+		for(intCount = 13; intCount < 26; intCount++){
+			intDeck[intCount][1] = 2;
+		}
+		for(intCount = 26; intCount < 39; intCount++){
+			intDeck[intCount][1] = 3;
+		}
+		for(intCount = 39; intCount < 52; intCount++){
+			intDeck[intCount][1] = 4;
+		}
+		
+		for(intCount = 0; intCount < 52; intCount++){
+			intDeck[intCount][2] = (int)(Math.random() * 100) + 1;
+		}
+	}
 	
