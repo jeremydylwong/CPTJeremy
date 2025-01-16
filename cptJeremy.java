@@ -26,6 +26,7 @@ public class cptJeremy{
     }
     
     public static void playGame(Console con) {
+		
 		int intDeck[][];
 		intDeck = new int[52][3];
         
@@ -99,7 +100,6 @@ public class cptJeremy{
             shuffleDeck(intDeck);
         }
     }
-}
 
 	public static void initializeDeck(){
 		int intCount;
@@ -124,4 +124,32 @@ public class cptJeremy{
 			intDeck[intCount][2] = (int)(Math.random() * 100) + 1;
 		}
 	}
+
+	public static void shuffleDeck(int[][] intDeck) {
+		int intTempValue;
+		int intTempSuit;
+		int intTempRandom;
+		int intRow2;
+		for(intRow2 = 0; intRow2 < 52-1; intRow2++){
+			for(int intRow = 0; intRow < 52-1-intRow2; intRow++){
+				// Bubble sort. If left is bigger than right
+				if(intDeck[intRow][2] > intDeck[intRow + 1][2]){
+					// Take the left item
+					intTempValue = intDeck[intRow][0];
+					intTempSuit = intDeck[intRow][1];
+					intTempRandom = intDeck[intRow][2];
+					// Right item moves to the left
+					intDeck[intRow][0] = intDeck[intRow + 1][0];
+					intDeck[intRow][1] = intDeck[intRow + 1][1];
+					intDeck[intRow][2] = intDeck[intRow + 1][2];
+					// Put temporary value on the right
+					intDeck[intRow + 1][0] = intTempValue;
+					intDeck[intRow + 1][1] = intTempSuit;
+					intDeck[intRow + 1][2] = intTempRandom;
+				}
+			}
+		}
+	}
+
+}
 	
