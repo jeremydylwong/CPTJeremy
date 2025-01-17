@@ -150,6 +150,17 @@ public class cptJeremy{
 			}
 		}
 	}
+	
+	public static void dealCards(int[][] intPlayerHand, int[][] intDealerHand, int[][] intDeck) {
+		int intCount;
+        for (intCount = 0; intCount < 2; intCount++) {
+            intPlayerHand[intCount][0] = intDeck[intCount][0];
+            intPlayerHand[intCount][1] = intDeck[intCount][1];
+            intDealerHand[intCount][0] = intDeck[intCount + 2][0];
+            intDealerHand[intCount][1] = intDeck[intCount + 2][1];
+        }
+    }
+
 
 }
 	
