@@ -194,7 +194,16 @@ public class cptJeremy{
 		// Return the card name
 		return strValue + " of " + strSuit;
 	}
-
+	
+	public static void displayHand(Console con, int[][] intHand, String handName) {
+		int intCount;
+		String strCard;
+		con.println(handName + ":");
+		for (intCount = 0; intCount < intHand.length && intHand[intCount][0] != 0; intCount++) {
+			strCard = getCardName(intHand[intCount]);
+			con.println(strCard);
+		}
+	}
 
 }
 	
