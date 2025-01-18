@@ -160,6 +160,40 @@ public class cptJeremy{
             intDealerHand[intCount][1] = intDeck[intCount + 2][1];
         }
     }
+	
+	public static String getCardName(int[] intCard) {
+		String strValue;
+		strValue = "";
+		String strSuit;
+		strSuit = "";
+
+		// Determine the card value
+		if (intCard[0] == 1) {
+			strValue = "Ace";
+		} else if (intCard[0] == 11) {
+			strValue = "Jack";
+		} else if (intCard[0] == 12) {
+			strValue = "Queen";
+		} else if (intCard[0] == 13) {
+			strValue = "King";
+		} else {
+			strValue = Integer.toString(intCard[0]);
+		}
+
+		// Determine the card suit
+		if (intCard[1] == 1) {
+			strSuit = "Diamonds";
+		} else if (intCard[1] == 2) {
+			strSuit = "Clubs";
+		} else if (intCard[1] == 3) {
+			strSuit = "Hearts";
+		} else if (intCard[1] == 4) {
+			strSuit = "Spades";
+		}
+
+		// Return the card name
+		return strValue + " of " + strSuit;
+	}
 
 
 }
